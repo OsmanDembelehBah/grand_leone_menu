@@ -1,0 +1,83 @@
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+html { scroll-behavior: smooth; }
+body { -webkit-tap-highlight-color: transparent; }
+
+.fade-in { animation: fadeIn .4s ease both; }
+@keyframes fadeIn { from { opacity:0; transform: translateY(6px);} to {opacity:1; transform:none;} }
+
+/* ============================================================
+   MOBILE: turn each table row into a compact stacked entry
+   Works perfectly from 320px → 640px. No horizontal scroll.
+   ============================================================ */
+@media (max-width: 640px) {
+  .menu-table,
+  .menu-table thead,
+  .menu-table tbody,
+  .menu-table tr,
+  .menu-table td { display: block; width: 100%; }
+
+  .menu-table thead { display: none; }
+
+  .menu-table tbody { padding: 0; }
+
+  .menu-table tr {
+    margin: 0 0 .75rem;
+    padding: .9rem 1rem;
+    border: 1px solid #ece2cf;
+    border-radius: .85rem;
+    background: #fff;
+    position: relative;
+  }
+  .menu-table tr:last-child { margin-bottom: 0; }
+
+  .menu-table td {
+    padding: 0;
+    border: none;
+    text-align: left !important;
+    font-size: 15px;
+    line-height: 1.35;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* NO. */
+  .menu-table td[data-label="NO."] {
+    color: #B9975B;
+    font-size: 11px;
+    letter-spacing: .22em;
+    margin-bottom: .35rem;
+  }
+
+  /* English name */
+  .menu-table td[data-label="ITEM"] {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2C1B14;
+  }
+
+  /* Chinese name */
+  .menu-table td[data-label="中文"] {
+    color: #6b5044;
+    font-size: 13.5px;
+    margin-top: .15rem;
+  }
+
+  /* Price — right aligned, prominent */
+  .menu-table td[data-label="PRICE"] {
+    text-align: right !important;
+    font-weight: 700;
+    color: #5A3A2E;
+    font-size: 16px;
+    margin-top: .45rem;
+    padding-top: .45rem;
+    border-top: 1px dashed #ecdfc6;
+  }
+}
+
+/* Small phones (iPhone SE, 320–360px) */
+@media (max-width: 380px) {
+  .menu-table tr { padding: .8rem .85rem; }
+  .menu-table td[data-label="ITEM"] { font-size: 15px; }
+  .menu-table td[data-label="PRICE"] { font-size: 15px; }
+}

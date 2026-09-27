@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grand Leone Restaurant & Casino | Digital Menu</title>
+    <meta
+      name="description"
+      content="Explore the Grand Leone Restaurant & Casino digital menu featuring rice, noodles, soups, vegetables, pork, beef, chicken, duck and cold dishes."
+    />
+    <meta
+      property="og:title"
+      content="Grand Leone Restaurant & Casino | Digital Menu"
+    />
+    <meta
+      property="og:description"
+      content="Rice, noodles, soups, vegetables, pork, beef, chicken, duck and cold dishes."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#2C1B14" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brown: "#5A3A2E",
+              "dark-brown": "#2C1B14",
+              gold: "#B9975B",
+              "light-gold": "#D8BE87",
+              cream: "#F7F2EA",
+              softbg: "#F8F5F0",
+            },
+            fontFamily: { display: ["Georgia", "serif"] },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-white text-dark-brown">
+    <!-- COVER -->
+    <section
+      id="cover"
+      class="min-h-screen flex items-center justify-center bg-cream relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-4 sm:inset-8 border-2 border-gold rounded-lg pointer-events-none"
+      ></div>
+      <div
+        class="absolute inset-6 sm:inset-12 border border-light-gold rounded-md pointer-events-none"
+      ></div>
+      <div class="relative z-10 text-center px-6 py-12 max-w-2xl">
+        <p class="text-gold tracking-[0.4em] text-xs sm:text-sm mb-6">
+          皇家里昂赌场
+        </p>
+        <h1 class="font-display text-5xl sm:text-7xl text-dark-brown mb-3">
+          GRAND LEONE
+        </h1>
+        <div class="flex items-center justify-center gap-4 my-6">
+          <span class="h-px w-16 bg-gold"></span>
+          <span class="text-gold text-2xl">❖</span>
+          <span class="h-px w-16 bg-gold"></span>
+        </div>
+        <p class="text-brown tracking-[0.3em] text-sm sm:text-base mb-1">
+          RESTAURANT &amp; CASINO
+        </p>
+        <p class="text-brown tracking-[0.5em] text-xs sm:text-sm mb-10">
+          DIGITAL MENU
+        </p>
+        <button
+          onclick="
+            document
+              .getElementById('menu')
+              .scrollIntoView({ behavior: 'smooth' })
+          "
+          class="bg-dark-brown text-cream px-10 py-4 rounded-full tracking-widest text-sm hover:bg-brown transition shadow-lg"
+        >
+          VIEW MENU
+        </button>
+      </div>
+    </section>
+
+    <!-- STICKY HEADER -->
+    <header
+      id="menu"
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-light-gold/40"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center gap-3"
+      >
+        <div class="flex-1 min-w-[140px]">
+          <h2
+            class="font-display text-lg sm:text-xl text-dark-brown leading-none"
+          >
+            GRAND LEONE
+          </h2>
+          <p class="text-[10px] tracking-widest text-gold">皇家里昂赌场</p>
+        </div>
+        <input
+          id="search"
+          type="search"
+          placeholder="SEARCH MENU..."
+          aria-label="Search menu"
+          class="order-3 sm:order-none w-full sm:w-64 px-4 py-2 rounded-full border border-light-gold/60 bg-softbg text-sm focus:outline-none focus:ring-2 focus:ring-gold"
+        />
+        <div class="flex items-center gap-2 text-xs">
+          <button
+            data-lang="en"
+            class="lang-btn px-3 py-1.5 rounded-full border border-gold bg-gold text-white font-semibold"
+          >
+            EN
+          </button>
+          <button
+            data-lang="zh"
+            class="lang-btn px-3 py-1.5 rounded-full border border-gold text-gold font-semibold"
+          >
+            中文
+          </button>
+        </div>
+      </div>
+      <nav
+        class="max-w-6xl mx-auto px-4 pb-3 flex gap-2 overflow-x-auto no-scrollbar"
+        id="filters"
+      ></nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-10">
+      <!-- FEATURED -->
+      <section class="mb-14">
+        <div class="text-center mb-8">
+          <h3 class="font-display text-3xl text-dark-brown">
+            GRAND LEONE SELECTION
+          </h3>
+          <p class="text-gold tracking-widest text-sm">皇家里昂精选</p>
+        </div>
+        <div
+          id="featured"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        ></div>
+      </section>
+
+      <!-- MENU SECTIONS -->
+      <div id="sections"></div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark-brown text-cream/90 py-10 text-center">
+      <p class="font-display text-xl">GRAND LEONE</p>
+      <p class="text-gold text-sm tracking-widest">皇家里昂赌场</p>
+      <p class="text-xs tracking-[0.3em] mt-2 text-cream/60">
+        RESTAURANT &amp; CASINO — DIGITAL MENU
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-3 px-4">
+        <button
+          onclick="shareMenu()"
+          class="border border-gold text-gold px-5 py-2 rounded-full text-xs tracking-widest hover:bg-gold hover:text-white transition"
+        >
+          SHARE MENU
+        </button>
+        <button
+          onclick="copyLink()"
+          class="border border-gold text-gold px-5 py-2 rounded-full text-xs tracking-widest hover:bg-gold hover:text-white transition"
+        >
+          COPY MENU LINK
+        </button>
+      </div>
+      <button
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        class="mt-6 text-gold text-xs tracking-widest hover:text-light-gold block mx-auto"
+      >
+        BACK TO MENU ↑
+      </button>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button
+      id="backTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Back to top"
+      class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-dark-brown text-gold shadow-lg opacity-0 pointer-events-none transition hover:bg-brown z-40"
+    >
+      ↑
+    </button>
+
+    <div
+      id="toast"
+      class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-dark-brown text-cream px-5 py-2 rounded-full text-sm opacity-0 pointer-events-none transition z-50"
+    ></div>
+
+    <script src="menu-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
